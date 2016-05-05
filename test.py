@@ -1,6 +1,12 @@
+import sys
 from z3 import *
 from my_solver import *
+from my_tsp_solver import *
 
-my_solver = SolverDB("input0.txt")
+if len(sys.argv) == 1:
+    print "Error: input file needs to specify"
+else:
+    print "Input file: ", str(sys.argv[1])
+    my_solver = TSP(str(sys.argv[1]))
+    my_solver.solveTSP()
 
-my_solver.init_solver()
